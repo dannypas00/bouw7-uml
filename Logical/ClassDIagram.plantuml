@@ -1,10 +1,30 @@
 @startuml
-interface TestCase
-class Entrypoint
+note as N1
+    Tests are run by defining an API call
+    and an expected result.
+end note
 
-TestCase : + Setup() : void
-TestCase : + Teardown() : void
-TestCase : - Execute(function) : void
+interface TestCase {
+    # Setup() : void
+    # Teardown() : void
+    # Execute() : void
+}
 
-Entrypoint : 
+class Entrypoint {
+    + Run(call: string) : int
+}
+
+note left of TestCRUD::Execute
+    Endpoint must be provided in the form of a path component.
+    The resulting call to endpoint <endpoint> would be formatted
+    like <protocol>://<FQDN/IP>/<endpoint>.
+end note
+
+abstract TestCRUD {
+    # Setup() : void
+    # Teardown() : void
+    # Execute(schema: mixed, endpoint: string, args: ?string[]) : void
+}
+
+TestCase <|-- TestCRUD
 @enduml
