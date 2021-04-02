@@ -1,0 +1,123 @@
+@startuml object
+class TestRunner
+TestRunner : + run(TestCase $test, TestResult $result) : void
+TestRunner : + runInSeparateProcess(\n    TestCase $test, \n    TestResult $result, \n    bool $runEntireClass, \n    bool $preserveGlobalState\n): void
+@enduml
+
+@startuml
+class TestResult
+
+TestResult : - array passed = []
+TestResult : - array passedTestClasses = []
+TestResult : - bool currentTestSuiteFailed = false
+TestResult : - array errors = []
+TestResult : - array failures = []
+TestResult : - array warnings = []
+TestResult : - array notImplemented = []
+TestResult : - array risky = []
+TestResult : - array skipped = []
+TestResult : - array listeners = []
+TestResult : - int runTests = 0
+TestResult : - float time = 0
+TestResult : - bool convertDeprecationsToExceptions = true
+TestResult : - bool convertErrorsToExceptions = true
+TestResult : - bool convertNoticesToExceptions = true
+TestResult : - bool convertWarningsToExceptions = true
+TestResult : - bool stop = false
+TestResult : - bool stopOnError = false
+TestResult : - bool stopOnFailure = false
+TestResult : - bool stopOnWarning = false
+TestResult : - bool beStrictAboutTestsThatDoNotTestAnything = true
+TestResult : - bool beStrictAboutOutputDuringTests = false
+TestResult : - bool beStrictAboutTodoAnnotatedTests = false
+TestResult : - bool beStrictAboutResourceUsageDuringSmallTests = false
+TestResult : - bool enforceTimeLimit = false
+TestResult : - bool forceCoversAnnotation = false
+TestResult : - int timeoutForSmallTests = 1
+TestResult : - int timeoutForMediumTests = 10
+TestResult : - int timeoutForLargeTests = 60
+TestResult : - bool stopOnRisky = false
+TestResult : - bool stopOnIncomplete = false
+TestResult : - bool stopOnSkipped = false
+TestResult : - bool lastTestFailed = false
+TestResult : - int defaultTimeLimit = 0
+TestResult : - bool stopOnDefect = false
+TestResult : - bool registerMockObjectsFromTestArgumentsRecursively = false
+
+TestResult : + addListener(TestListener): void
+TestResult : + flushListeners(): void
+TestResult : + addError(Test, Throwable, float): void
+TestResult : + addWarning(Test, Warning, float): void
+TestResult : + addFailure(Test, AssertionFailedError, float): void
+TestResult : + startTestSuite(TestSuite): void
+TestResult : + endTestSuite(TestSuite): void
+TestResult : + startTest(Test): void
+TestResult : + endTest(Test, float): void
+TestResult : + allHarmless(): bool
+TestResult : + riskyCount(): int
+TestResult : + allCompletelyImplemented(): bool
+TestResult : + notImplementedCount(): int
+TestResult : + risky(): array
+TestResult : + notImplemented(): array
+TestResult : + noneSkipped(): bool
+TestResult : + skippedCount(): int
+TestResult : + skipped(): array
+TestResult : + errorCount(): int
+TestResult : + errors(): array
+TestResult : + failureCount(): int
+TestResult : + failures(): array
+TestResult : + warningCount(): int
+TestResult : + warnings(): array
+TestResult : + passed(): array
+TestResult : + passedClasses(): array
+TestResult : + count(): int
+TestResult : + shouldStop(): bool
+TestResult : + stop(): void
+TestResult : + convertDeprecationsToExceptions(bool): void
+TestResult : + shouldDeprecationsBeConvertedToExceptions(): bool
+TestResult : + convertErrorsToExceptions(bool): void
+TestResult : + shouldErrorsBeConvertedToExceptions(): bool
+TestResult : + convertNoticesToExceptions(bool): void
+TestResult : + shouldNoticeBeConvertedToExceptions(): bool
+TestResult : + convertWarningsToExceptions(bool): void
+TestResult : + shouldWarningsBeConvertedToExceptions(): bool
+TestResult : + stopOnError(bool): void
+TestResult : + stopOnFailure(bool): void
+TestResult : + stopOnWarning(bool): void
+TestResult : + beStrictAboutTestsThatDoNotTestAnything(bool): void
+TestResult : + isStrictAboutTestsThatDoNotTestAnything(): bool
+TestResult : + beStrictAboutOutputDuringTests(bool): void
+TestResult : + isStrictAboutOutputDuringTests(): bool
+TestResult : + beStrictAboutResourceUsageDuringSmallTests(bool): void
+TestResult : + isStrictAboutResourceUsageDuringSmallTests(): bool
+TestResult : + enforceTimeLimit(bool): void
+TestResult : + enforcesTimeLimit(): bool
+TestResult : + beStrictAboutTodoAnnotatedTests(bool): void
+TestResult : + isStrictAboutTodoAnnotatedTests(): bool
+TestResult : + forceCoversAnnotation(): void
+TestResult : + enforcesCoversAnnotation(): bool
+TestResult : + stopOnRisky(bool): void
+TestResult : + stopOnIncomplete(bool): void
+TestResult : + stopOnSkipped(bool): void
+TestResult : + stopOnDefect(bool): void
+TestResult : + time(): float
+TestResult : + wasSuccessful(): bool
+TestResult : + wasSuccessfulIgnoringWarnings(): bool
+TestResult : + wasSuccessfulAndNoTestIsRiskyOrSkippedOrIncomplete(): bool
+TestResult : + setDefaultTimeLimit(int): void
+TestResult : + defaultTimeLimit(): int
+TestResult : + setTimeoutForSmallTests(int): void
+TestResult : + timeoutForSmallTests(): int
+TestResult : + setTimeoutForMediumTests(int): void
+TestResult : + timeoutForMediumTests(): int
+TestResult : + setTimeoutForLargeTests(int): void
+TestResult : + timeoutForLargeTests(): int
+TestResult : + registerMockObjectsFromTestArgumentsRecursively(): void
+TestResult : + shouldMockObjectsFromTestArgumentsBeRegisteredRecursively(): bool
+
+TestResult : - recordError(Test, Throwable): void
+TestResult : - recordNotImplemented(Test, Throwable): void
+TestResult : - recordRisky(Test, Throwable): void
+TestResult : - recordSkipped(Test, Throwable): void
+TestResult : - recordWarning(Test, Throwable): void
+@enduml

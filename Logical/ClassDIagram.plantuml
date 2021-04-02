@@ -1,0 +1,10 @@
+@startuml
+interface TestCase
+class Entrypoint
+
+TestCase : + Setup() : void
+TestCase : + Teardown() : void
+TestCase : - Execute(function) : void
+
+Entrypoint : 
+@enduml
