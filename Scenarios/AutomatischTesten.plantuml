@@ -1,0 +1,27 @@
+@startuml usecase
+left to right direction
+skinparam linetype ortho
+
+actor CI as "CircleCI"
+
+rectangle "Automatisch testen" {
+    usecase start as "Bouw CircleCI container"
+    usecase searchcache as "Check voor bestaande cache
+    --Cache niet beschikbaar--
+        Ga door naar uitvoeren tests, 
+        framework bouwt zelf 
+        benodigde files op"
+    usecase getcache as "Haal bestaande cache op en gebruik deze"
+    usecase run as "Voer tests uit"
+    usecase cleanup as "Schoon bestanden op"
+    usecase addcache as "Maak cache aan"
+}
+
+CI -- start
+start -> searchcache
+searchcache -- getcache
+searchcache -- addcache
+searchcache -> run
+run -> cleanup
+
+@enduml
