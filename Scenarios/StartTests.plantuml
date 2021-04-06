@@ -1,0 +1,39 @@
+@startuml usecase
+left to right direction
+skinparam linetype ortho
+
+actor caller as "Aanroeper"
+
+note top of caller: Kan menselijke\ngebruiker of CI zijn
+
+rectangle "Start tests" {
+    usecase start as "Roep test framework aan"
+    usecase search as "Doorzoek geconfigureerde \nfiles voor test case classes
+    --Test classes gevonden--
+              Ga door
+    --Geen test classes gevonden--
+                Geef error
+    "
+    usecase db as "Start lokale database"
+    usecase init as "Vul de database met dummy data"
+    usecase servers as "Start server docker images"
+    usecase load as "Laad de test cases in"
+    usecase execute as "Voer de ingeladen tests uit"
+    usecase return as "Laat testresultaten zien"
+    usecase error as "Weergeef error "No testcases found""
+}
+
+caller -- start
+search -> error
+
+start -> search
+search -> db
+db -> init
+start -> servers
+servers --> load
+init --> load
+load -> execute
+execute -> return
+return --> caller
+
+@enduml
