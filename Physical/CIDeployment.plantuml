@@ -1,0 +1,162 @@
+@startuml CircleCI Deployment Diagram
+left to right direction
+skinparam linetype ortho
+
+storage bouw7 as "Bouw7/bouw7 repository" {
+    file frontend as "Frontend Vue.js code"
+    file yii2 as "Yii2 code"
+    file migrations as "Databasemigraties"
+}
+
+storage web-api as "Bouw7/web-api repository"{ 
+    file api as "Web api code"
+}
+
+cloud CircleCI_cloud as "CircleCI" {
+    node CircleCI as "CircleCI host" {
+        node main as "Main test container"{
+            folder main_artifacts as "CircleCI Artifacts"{
+                file func_coverage as "Code coverage output"
+            }
+
+            folder main_workspaces as "CircleCI Workspaces"{
+
+            }
+
+            folder main_cache as "CircleCI Cache"{
+                storage main_dependencies[
+                    Opgeslagen dependencies
+                    en packages
+                ]
+            }
+
+            folder main_ramdisk as "CircleCI Ramdisk"{
+
+            }
+
+            queue main_workflow as "Main test workflow" {
+                queue main_workflow_1 as "Setup" <<job>>
+                queue main_workflow_2 as "Checkout" <<job>>
+                queue main_workflow_3 as "Apt update" <<job>>
+                queue main_workflow_4 as "Composer update" <<job>>
+                queue main_workflow_5 as "Restore cache" <<job>>
+                queue main_workflow_6 as "Composer install" <<job>>
+                queue main_workflow_7 as "Save cache" <<job>>
+                queue main_workflow_8 as "phpcov test" <<job>>
+                queue main_workflow_9 as "phpstan test" <<job>>
+                queue main_workflow_10 as "Restore cache" <<job>>
+                queue main_workflow_11 as "php-cs-fixer dry run test" <<job>>
+                queue main_workflow_12 as "Save cache" <<job>>
+                queue main_workflow_13 as "Upload coverage artifact" <<job>>
+
+                main_workflow_5 <-- main_cache
+                main_workflow_7 --> main_cache
+                main_workflow_10 <-- main_cache
+                main_workflow_12 --> main_cache
+                main_workflow_13 --> main_artifacts
+
+                main_workflow_2 <- main_workflow_1
+                main_workflow_3 <- main_workflow_2
+                main_workflow_4 <- main_workflow_3
+                main_workflow_5 <- main_workflow_4
+                main_workflow_6 <- main_workflow_5
+                main_workflow_7 <- main_workflow_6
+                main_workflow_8 <- main_workflow_7
+                main_workflow_9 <- main_workflow_8
+                main_workflow_10 <- main_workflow_9
+                main_workflow_11 <- main_workflow_10
+                main_workflow_12 <- main_workflow_11
+                main_workflow_13 <- main_workflow_12
+            }
+        }
+
+        node functional as "Functional test container"{
+            folder func_artifacts as "CircleCI Artifacts"{
+                file func_dummy_data[
+                    Database 
+                    dummy data
+                ]
+                file func_results[
+                    Testresultaten
+                ]
+            }
+
+            folder func_cache as "CircleCI Cache"{
+                storage func_dependencies[
+                    Opgeslagen dependencies
+                    en packages
+                ]
+                folder func_web_api_cache[
+                    Cached web-api
+                    code files
+                ]
+                database db_cache[
+                    Cached database
+                    files
+                ]
+            }
+
+            folder func_ramdisk as "CircleCI Ramdisk"{
+                node func_docker_web_api as "Web-api docker container"
+            }
+
+            database func_db as "Lokale database"
+
+            queue func_workflow as "Functional test workflow" {
+                queue func_workflow_1 as "Setup" <<job>>
+                queue func_workflow_2 as "Restore cached database" <<job>>
+                queue func_workflow_3 as "Start database" <<job>>
+                queue func_workflow_4 as "Pull bouw7 Yii2 migraties" <<job>>
+                queue func_workflow_5 as "Voer Yii2 migraties uit" <<job>>
+                queue func_workflow_6 as "Vul database met dummy data" <<job>>
+                queue func_workflow_7 as "Sla database als cache op" <<job>>
+                queue func_workflow_8 as "Restore cached web-api repository" <<job>>
+                queue func_workflow_9 as "Compopser update web-api" <<job>>
+                queue func_workflow_10 as "Sla web-api als cache op" <<job>>
+                queue func_workflow_11 as "Start web-api docker container" <<job>>
+                queue func_workflow_12 as "Voer testmodule uit" <<job>>
+                queue func_workflow_13 as "Sla testresultaten op in artifact" <<job>>
+
+                func_workflow_2 --> func_db
+                func_workflow_2 <-- db_cache
+                func_workflow_4 <-=- bouw7
+                func_workflow_3 --> func_db
+                func_workflow_5 --> func_db
+                func_workflow_6 --> func_db
+                func_workflow_7 <-- func_db
+                func_workflow_7 --> db_cache
+                func_workflow_8 -- func_web_api_cache
+                func_workflow_10 --> func_web_api_cache
+                func_workflow_11 --> func_docker_web_api
+                func_workflow_12 -- func_docker_web_api
+                func_workflow_13 --> func_artifacts
+
+                func_workflow_2 <- func_workflow_1
+                func_workflow_3 <- func_workflow_2
+                func_workflow_4 <- func_workflow_3
+                func_workflow_5 <- func_workflow_4
+                func_workflow_6 <- func_workflow_5
+                func_workflow_7 <- func_workflow_6
+                func_workflow_8 <- func_workflow_7
+                func_workflow_9 <- func_workflow_8
+                func_workflow_10 <- func_workflow_9
+                func_workflow_11 <- func_workflow_10
+                func_workflow_12 <- func_workflow_11
+                func_workflow_13 <- func_workflow_12
+            }
+        }
+
+        folder artifacts as "CircleCI Artifacts"{
+            
+        }
+
+        folder cache as "CircleCI Cache"{
+            
+        }
+
+        folder ramdisk as "CircleCI Ramdisk"{
+
+        }
+    }
+}
+@enduml

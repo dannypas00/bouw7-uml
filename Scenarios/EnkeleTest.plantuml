@@ -1,0 +1,27 @@
+@startuml usecase
+left to right direction
+skinparam linetype ortho
+
+
+actor caller as "Framework"
+
+rectangle usecase as "Uitvoeren individuele tests" {
+    usecase setup as "Testclass setup methode wordt uitgevoerd"
+    usecase search as "Testclass wordt doorzocht voor @testcase geannoteerde functies
+        --Geen testcase gevonden--
+        Geef error"
+    usecase execute as "Test functies worden uitgevoerd"
+    usecase return as "Testresultaten van test functies
+        worden asyncrhoon terug gestuurd"
+    usecase teardown as "Testclass teardown methode wordt uitgevoerd"
+}
+
+caller -- setup
+setup -> search
+search -> execute
+search -right-> caller
+execute --|> return
+return -right-> caller
+execute -> teardown
+
+@enduml

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="554px" preserveAspectRatio="none" style="width:864px;height:554px;" version="1.1" viewBox="0 0 864 554" width="864px" zoomAndPan="magnify"><defs><filter height="300%" id="f1bq1b67eny3ha" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[e87e603ccfa50601551ee5182e1669af]
+cluster usecase--><rect fill="#FFFFFF" filter="url(#f1bq1b67eny3ha)" height="441" style="stroke:#000000;stroke-width:1.5;" width="845" x="7" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="192" x="333.5" y="23.5332">Uitvoeren individuele tests</text><ellipse cx="250.2816" cy="398.7563" fill="#FEFECE" filter="url(#f1bq1b67eny3ha)" rx="149.2816" ry="32.2563" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="267" x="116.7816" y="402.4848">Testclass setup methode wordt uitgevoerd</text><ellipse cx="250.4265" cy="282.8853" fill="#FEFECE" filter="url(#f1bq1b67eny3ha)" rx="227.4265" ry="47.8853" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="413" x="45.4149" y="280.1328">Testclass wordt doorzocht voor @testcase geannoteerde functies</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="174.4149" y="315.3515">Geef error</text><line style="stroke:#A80036;stroke-width:1.0;" x1="28.1705" x2="170.9265" y1="292.0136" y2="292.0136"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="170.9265" y="297.2421">Geen testcase gevonden</text><line style="stroke:#A80036;stroke-width:1.0;" x1="329.9265" x2="472.6825" y1="292.0136" y2="292.0136"/><ellipse cx="250.7025" cy="174.1405" fill="#FEFECE" filter="url(#f1bq1b67eny3ha)" rx="118.7025" ry="26.1405" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="202" x="149.7025" y="177.869">Test functies worden uitgevoerd</text><ellipse cx="687.0291" cy="287.2058" fill="#FEFECE" filter="url(#f1bq1b67eny3ha)" rx="149.0291" ry="32.2058" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="198" x="588.0291" y="282.1297">Testresultaten van test functies</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="221" x="576.5291" y="299.739">worden asyncrhoon terug gestuurd</text><ellipse cx="250.2866" cy="77.9573" fill="#FEFECE" filter="url(#f1bq1b67eny3ha)" rx="160.2866" ry="34.4573" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="290" x="105.2866" y="81.6858">Testclass teardown methode wordt uitgevoerd</text><!--MD5=[199196004143ad81764c15ef5a1e7d18]
+entity caller--><ellipse cx="250.5" cy="476" fill="#FEFECE" filter="url(#f1bq1b67eny3ha)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M250.5,484 L250.5,511 M237.5,492 L263.5,492 M250.5,511 L237.5,526 M250.5,511 L263.5,526 " fill="none" filter="url(#f1bq1b67eny3ha)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="215.5" y="546.0332">Framework</text><!--MD5=[af1e57adf7043d9f06dfa77476599b34]
+link caller to setup--><path d="M251,466.48 C251,454.93 251,442.55 251,431.59 " fill="none" id="caller-setup" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4993e79e487106409c15532f81eecb60]
+link setup to search--><path d="M251,366.38 C251,366.38 251,336.4 251,336.4 " fill="none" id="setup-to-search" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="251,331.4,247,340.4,251,336.4,255,340.4,251,331.4" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[67b2247b79ac387f423c8f534ac55e38]
+link search to execute--><path d="M251,234.87 C251,234.87 251,205.05 251,205.05 " fill="none" id="search-to-execute" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="251,200.05,247,209.05,251,205.05,255,209.05,251,200.05" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[191b9aca21ba62d7a5761d5374362308]
+link search to caller--><path d="M62,310.14 C62,369.98 62,508 62,508 C62,508 210.49,508 210.49,508 " fill="none" id="search-to-caller" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="215.49,508,206.49,504,210.49,508,206.49,512,215.49,508" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[67561c93f7449e45ab00006e6e3d3946]
+link execute to return--><path d="M369.2,174 C498.46,174 687,174 687,174 C687,174 687,234.92 687,234.92 " fill="none" id="execute-to-return" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="694,234.92,687,254.92,680,234.92,694,234.92" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[925f9faabcc401c220924b4db54a0253]
+link return to caller--><path d="M687,319.14 C687,380.43 687,508 687,508 C687,508 290.85,508 290.85,508 " fill="none" id="return-to-caller" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="285.85,508,294.85,512,290.85,508,294.85,504,285.85,508" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[99967d292dbfdf343fa4d991b04a12df]
+link execute to teardown--><path d="M251,147.77 C251,147.77 251,117.84 251,117.84 " fill="none" id="execute-to-teardown" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="251,112.84,247,121.84,251,117.84,255,121.84,251,112.84" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0972904b0449baf6ef579986467a36fc]
+@startuml usecase
+left to right direction
+skinparam linetype ortho
+
+
+actor caller as "Framework"
+
+rectangle usecase as "Uitvoeren individuele tests" {
+    usecase setup as "Testclass setup methode wordt uitgevoerd"
+    usecase search as "Testclass wordt doorzocht voor @testcase geannoteerde functies
+        - -Geen testcase gevonden- -
+        Geef error"
+    usecase execute as "Test functies worden uitgevoerd"
+    usecase return as "Testresultaten van test functies
+        worden asyncrhoon terug gestuurd"
+    usecase teardown as "Testclass teardown methode wordt uitgevoerd"
+}
+
+caller - - setup
+setup -> search
+search -> execute
+search -right-> caller
+execute - -|> return
+return -right-> caller
+execute -> teardown
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>
