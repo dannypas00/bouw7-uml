@@ -1,0 +1,79 @@
+together {
+    queue func_workflow_1 as "Setup" <<job>>
+    queue func_workflow_2 as "Restore cached database" <<job>>
+    queue func_workflow_3 as "Start database" <<job>>
+    queue func_workflow_4 as "Pull bouw7 Yii2 migraties" <<job>>
+    queue func_workflow_5 as "Voer Yii2 migraties uit" <<job>>
+    queue func_workflow_6 as "Vul database met dummy data" <<job>>
+    queue func_workflow_7 as "Sla database als cache op" <<job>>
+    queue func_workflow_8 as "Restore cached web-api repository" <<job>>
+    queue func_workflow_9 as "Compopser update web-api" <<job>>
+    queue func_workflow_10 as "Sla web-api als cache op" <<job>>
+    queue func_workflow_11 as "Start web-api docker container" <<job>>
+    queue func_workflow_12 as "Voer testmodule uit" <<job>>
+    queue func_workflow_13 as "Sla testresultaten op in artifact" <<job>>
+}
+together {
+    func_workflow_2 -> func_db
+    func_workflow_2 <- db_cache
+    func_workflow_4 <- bouw7
+    func_workflow_3 -> func_db
+    func_workflow_5 -> func_db
+    func_workflow_6 -> func_db
+    func_workflow_7 <- func_db
+    func_workflow_7 -> db_cache
+    func_workflow_8 - func_web_api_cache
+    func_workflow_10 -> func_web_api_cache
+    func_workflow_11 -> func_docker_web_api
+    func_workflow_12 - func_docker_web_api
+    func_workflow_13 -> func_artifacts
+}
+
+func_workflow_2 <- func_workflow_1
+func_workflow_3 <- func_workflow_2
+func_workflow_4 <- func_workflow_3
+func_workflow_5 <- func_workflow_4
+func_workflow_6 <- func_workflow_5
+func_workflow_7 <- func_workflow_6
+func_workflow_8 <- func_workflow_7
+func_workflow_9 <- func_workflow_8
+func_workflow_10 <- func_workflow_9
+func_workflow_11 <- func_workflow_10
+func_workflow_12 <- func_workflow_11
+func_workflow_13 <- func_workflow_12
+
+
+
+queue main_workflow_1 as "Setup" <<job>>
+queue main_workflow_2 as "Checkout" <<job>>
+queue main_workflow_3 as "Apt update" <<job>>
+queue main_workflow_4 as "Composer update" <<job>>
+queue main_workflow_5 as "Restore cache" <<job>>
+queue main_workflow_6 as "Composer install" <<job>>
+queue main_workflow_7 as "Save cache" <<job>>
+queue main_workflow_8 as "phpcov test" <<job>>
+queue main_workflow_9 as "phpstan test" <<job>>
+queue main_workflow_10 as "Restore cache" <<job>>
+queue main_workflow_11 as "php-cs-fixer dry run test" <<job>>
+queue main_workflow_12 as "Save cache" <<job>>
+queue main_workflow_13 as "Upload coverage artifact" <<job>>
+
+main_workflow_2 <- main_workflow_1
+main_workflow_3 <- main_workflow_2
+main_workflow_4 <- main_workflow_3
+main_workflow_5 <- main_workflow_4
+main_workflow_6 <- main_workflow_5
+main_workflow_7 <- main_workflow_6
+main_workflow_8 <- main_workflow_7
+main_workflow_9 <- main_workflow_8
+main_workflow_10 <- main_workflow_9
+main_workflow_11 <- main_workflow_10
+main_workflow_12 <- main_workflow_11
+main_workflow_13 <- main_workflow_12
+
+
+main_workflow_5 <- main_cache
+main_workflow_7 -> main_cache
+main_workflow_10 <- main_cache
+main_workflow_12 -> main_cache
+main_workflow_13 -> main_artifacts
