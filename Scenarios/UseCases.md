@@ -51,5 +51,3 @@ Ook zullen de use cases in de vorm van UML diagrammen opgebouwd worden:
 | Notities      	|   Deze use case gaat ervanuit dat use case [Starten van tests](#start-tests) al uitgevoerd is.	|  
 
 ![Enkele test](../out/Scenarios/EnkeleTest/usecase.svg "Enkele test")
-
-## Database synchroniseren

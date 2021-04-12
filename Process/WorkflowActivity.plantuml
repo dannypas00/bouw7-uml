@@ -1,0 +1,49 @@
+@startuml Functional testing workflow activity diagram
+start
+:Setup;
+fork
+    if (Cache contains Database) then (True)
+        :Restore cached database;
+    else 
+        :Build new database;
+    endif
+    fork
+        :Start database;
+    fork again
+        :Pull bouw7/web-api;
+    end fork
+    if (Database migration status) then (Not fully migrated)
+        :Execute database migrations;
+    endif
+    fork
+        :Save database to cache;
+        kill
+    fork again
+    end fork
+    :Fill database with 
+    dummy data from artifact;
+fork again
+    if (Cache contains bouw7/web-api) then (True)
+        :Restore cached bouw7/web-api;
+    endif
+    :Git pull bouw7/web-api;
+    :Composer install;
+    fork
+        :Save bouw7/web-api to cache;
+        kill
+    fork again
+    end fork
+    
+end fork
+:Start web-api docker container;
+:Execute tests;
+:Save test results in artifact;
+fork
+    :Terminate web-api docker;
+fork again
+    :Terminate database;
+fork again
+    :Clean up files;
+end fork
+stop
+@enduml

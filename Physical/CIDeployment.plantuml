@@ -44,7 +44,9 @@ cloud CircleCI_cloud as "CircleCI" #line:LightGray;line.dashed {
         node functional as "Functional test container" << CircleCi container >> #line:blue;line.dotted;text:blue  {
             folder func_artifacts as "CircleCI Artifacts"{
                 file func_dummy_data[
-                    Database 
+                    DummyData.sql
+                    ----
+                    Database
                     dummy data
                 ]
                 file func_results[
