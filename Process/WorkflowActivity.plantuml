@@ -2,7 +2,7 @@
 start
 :Setup;
 fork
-    if (Cache contains Database) then (True)
+    if (Cache contains Database?) then (True)
         :Restore cached database;
     else 
         :Build new database;
@@ -23,7 +23,7 @@ fork
     :Fill database with 
     dummy data from artifact;
 fork again
-    if (Cache contains bouw7/web-api) then (True)
+    if (Cache contains bouw7/web-api?) then (True)
         :Restore cached bouw7/web-api;
     endif
     :Git pull bouw7/web-api;
