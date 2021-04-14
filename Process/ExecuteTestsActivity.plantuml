@@ -1,17 +1,22 @@
 @startuml Execute functional tests activity diagram
 start
+
 :Scan for php files (recursive);
+
 note right
     Directory to search is given
     as commandline argument to
     framework call.
 end note
+
 if (Test found?) then (False: Throw error: "No files found")
     stop
 endif
+
 if (n is defined in call) then (True)
     :Split files into batches of n size;
 endif
+
 fork
     repeat
         if (File contains @test annotations) then (True)
@@ -29,10 +34,12 @@ fork
         :Execute the test's <i>Teardown()</i> method;
     repeat while (All files in batch tested?) is (False) not (True)
 end fork
+
 note right
     This is executed in parallel 
     for all defined batches. 
     If n == 1, execute once.
 end note
+
 stop
 @enduml

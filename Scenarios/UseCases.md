@@ -46,8 +46,8 @@ Ook zullen de use cases in de vorm van UML diagrammen opgebouwd worden:
 | Precondities  	|   De omgeving is opgezet en de functionaliteit [Starten van tests](#start-tests) is doorlopen. Hierbij zijn de database en de backend web-api opgestelt en zijn alle huidige migraties op de database uitgevoerd. Ook is er een te testen test class bekend en meegegeven.	|
 | Trigger       	|   Taak [Starten van tests](#start-tests) is afgerond en roept individuele tests aan.	|
 | Postcondities 	|   De tests zullen uitgevoerd zijn en een resultaat terug hebben gegeven.	|
-| Happy path      	|   1. Testclass setup methode wordt uitgevoerd<br>2. Test class wordt doorzocht voor test functie annotaties<br>3. Tests worden uitgevoerd<br>4. Testresultaat wordt asynchroon aan de aanroeper doorgestuurd<br>5. Testclass teardown wordt uitgevoerd<br>6. Volgende test wordt gestart	|
-| Alternatief       |   1. Testclass setup methode wordt uitgevoerd<br>2. Test class wordt doorzocht voor test functie annotaties<br>3. Tests worden uitgevoerd<br>4. Test loopt tegen een onverwachte error aan<br>5. Geef error door aan aanroeper<br>6. Sla deze test over, ga door naar volgende test    |
+| Happy path      	|   1. Test class setup methode wordt uitgevoerd<br>2. Test class wordt doorzocht voor test functie annotaties<br>3. Tests worden uitgevoerd<br>4. Testresultaat wordt asynchroon aan de aanroeper doorgestuurd<br>5. Testclass teardown wordt uitgevoerd<br>6. Volgende test wordt gestart	|
+| Alternatief       |   1. Test class setup methode wordt uitgevoerd<br>2. Test class wordt doorzocht voor test functie annotaties<br>3. Tests worden uitgevoerd<br>4. Test loopt tegen een onverwachte error aan<br>5. Geef error door aan aanroeper<br>6. Sla deze test over, ga door naar volgende test    |
 | Notities      	|   Deze use case gaat ervanuit dat use case [Starten van tests](#start-tests) al uitgevoerd is.	|  
 
 ![Enkele test](../out/Scenarios/EnkeleTest/usecase.svg "Enkele test")
