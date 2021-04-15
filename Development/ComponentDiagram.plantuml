@@ -1,0 +1,33 @@
+@startuml Component diagram
+skinparam Linetype ortho
+skinparam componentStyle uml1
+left to right direction
+
+component "Web API" <<Code repository>> as web_api {
+    component "Test cases" as test_cases
+    component "Web server" <<Apache>> as api_server
+    component "Source code" as source
+
+    component "Functional testing framework" <<Composer package>> as framework {
+        component "Test runner" as runner
+        component "Test batch manager" as manager
+        component "Test database" <<SQLite>> as test_db
+    }
+}
+
+component "bouw7" <<Code repository>> as bouw7 {
+    component "Database migrations" as migrations
+}
+
+interface "Pull request" <<SSH>> as bouw7_pull
+bouw7_pull -- bouw7
+runner ..( bouw7_pull: Web request
+interface "API endpoints" <<HTTPS>> as endpoints
+endpoints -- api_server
+framework .( endpoints: Web request
+
+runner <- test_cases
+api_server .> source
+
+runner -> test_db
+@enduml

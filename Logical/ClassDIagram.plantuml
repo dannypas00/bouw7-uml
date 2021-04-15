@@ -1,19 +1,42 @@
 @startuml Framework class diagram
-interface TestCase {
-    # Setup() : void
-    # Teardown() : void
+skinparam Linetype ortho
+together {
+    interface TestCase {
+        # Setup() : void
+        # Teardown() : void
+    }
+    note left
+        @Test annotations are used
+        to define test functions
+        within each TestCase
+    end note
+
+    interface Assert {
+        {static} Assert(expected: mixed, actual: mixed): void
+        {static} AssertQuery(expected: string, query: string): void
+    }
+    note left of Assert::AssertQuery
+        AssertQuery Takes a value 
+        and a query and compares the 
+        return of the query to the value.
+    end note
 }
-note left
-    @Test annotations are used
-    to define test functions
-    within each TestCase
-end note
 
 class TestCaller {
     + Run(argv: string[]) : int
     - SplitBatches(batchesAmount: int, tests: TestCase[], databasePath: string) : 
-    - ExecuteBatch()
+    - ExecuteBatch() : Future
 }
 
+class TestBatchManager {
+    - Batch: TestCase[]
+    + __construct(Batch: TestCase[])
+    - RunBatch(): void
+}
 
+TestBatchManager "1" - "*" TestCase: has >
+
+TestCaller "1" -- "1..*" TestBatchManager: spawns >
+
+TestCase "1" -- "1..*" Assert: uses >
 @enduml
