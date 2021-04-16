@@ -11,10 +11,10 @@ rectangle "Automated testing" {
         Skip to test execution, 
         framework will build
         necessary files itself"
-    usecase getcache as "Retrieve and use cache"
     usecase run as "Execute tests"
     usecase cleanup as "Clean up files"
     usecase addcache as "Create cache"
+    usecase getcache as "Retrieve and use cache"
 }
 
 CI -- start

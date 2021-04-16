@@ -5,33 +5,43 @@ left to right direction
 
 together {
     component "Web API" <<Code repository>> as web_api {
-        component ":Test cases" as test_cases
+        component ":Test cases" <<PHP class>> as test_cases
         component ":Web server" <<Apache>> as api_server
         component ":Source code" as source
+        component ":Database connection settings" as db_conn
     }
+    interface "API endpoints" <<HTTPS>> as endpoints
+    interface "Available tests" as tests
+    interface "Environment variables" as env
+}
 
-    component "Functional testing framework" <<Composer package>> as framework {
-        component ":Test runner" as runner
-        component ":Test batch manager" as manager
+component "Functional testing framework" <<Composer package>> as framework {
+    component ":Test runner" <<PHP runtime>> as runner
+    together {
+        component ":Test batch manager" <<PHP runtime>> as manager
         component ":Test database" <<SQLite>> as test_db
+        component ":Test class" <<PHP runtime>> as test
         interface "Database connection" as sqlite_conn
         interface "Spawn batch tester" as spawn
+        interface "Run tests" as run
     }
 }
 
-component "bouw7" <<Code repository>> as bouw7 {
-    component "Database migrations" as migrations
+together {
+    component "bouw7" <<Code repository>> as bouw7 {
+        component "Database migrations" as migrations
+    }
+    interface "Pull request" <<SSH>> as bouw7_pull
 }
 
-interface "Pull request" <<SSH>> as bouw7_pull
-interface "API endpoints" <<HTTPS>> as endpoints
-interface "Available tests" as tests
+db_conn - env
+runner ..( env
 
-bouw7 -- bouw7_pull
-runner -( bouw7_pull
+bouw7 - bouw7_pull
+runner ..( bouw7_pull
 
-endpoints -- api_server
-framework .( endpoints
+endpoints - api_server
+test ..( endpoints
 
 tests -- test_cases
 tests ). runner
@@ -39,8 +49,11 @@ tests ). runner
 api_server .> source
 
 sqlite_conn - test_db
-runner ..( sqlite_conn
+runner .( sqlite_conn
 
 spawn - manager
 runner .( spawn
+
+test - run
+run ).. manager
 @enduml

@@ -4,7 +4,7 @@ skinparam linetype ortho
 
 actor caller as "Caller"
 
-note top of caller: Kan menselijke\ngebruiker of CI zijn
+note top of caller: Can be human or CircleCI
 
 rectangle "Start tests" {
     usecase start as "Call framework"
