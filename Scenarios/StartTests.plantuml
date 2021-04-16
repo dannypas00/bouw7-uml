@@ -1,9 +1,7 @@
 @startuml usecase
-left to right direction
 skinparam linetype ortho
 
 actor caller as "Caller"
-
 note top of caller: Can be human or CircleCI
 
 rectangle "Start tests" {
@@ -20,17 +18,17 @@ rectangle "Start tests" {
     usecase error as "Display error "No testcases found""
 }
 
-caller -- start
-search -> error
+caller- start
+search --> error
 
-start -> search
-search -> db
-db -> init
-start -> servers
-servers --> load
-init --> load
-load -> execute
-execute -> return
-return --> caller
+start --> search
+search --> db
+db --> init
+start --> servers
+servers .|> load
+init .|> load
+load --> execute
+execute --> return
+return -> caller
 
 @enduml

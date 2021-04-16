@@ -4,16 +4,17 @@ start
 fork
     if (Cache contains Database?) then (True)
         :Restore cached database;
-    else 
+    else (False)
         :Build new database;
     endif
     fork
         :Start database;
     fork again
-        :Pull bouw7/web-api;
+        :Pull bouw7/bouw7;
     end fork
     if (Database migration status) then (Not fully migrated)
         :Execute database migrations;
+    else (Fully migrated)
     endif
     fork
         :Save database to cache;
@@ -25,6 +26,7 @@ fork
 fork again
     if (Cache contains bouw7/web-api?) then (True)
         :Restore cached bouw7/web-api;
+    else (False)
     endif
     :Git pull bouw7/web-api;
     :Composer install;

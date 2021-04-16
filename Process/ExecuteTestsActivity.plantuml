@@ -7,25 +7,32 @@ note right
     Directory to search is given
     as commandline argument to
     framework call.
+    Argument 'n' can be given
+    to indicate a preferered batch
+    size. If n is not given, only
+    one batch is spawned.
 end note
 
-if (Test found?) then (False: Throw error: "No files found")
+if (Test found?) then (No: Throw error: "No files found")
     stop
+else (Yes)
 endif
 
 if (n is defined in call) then (True)
     :Split files into batches of n size;
+else (False)
 endif
 
 fork
     repeat
-        if (File contains @test annotations) then (True)
+        if (File contains @Test annotations) then (False)
             end
             note left
                 Skip any file that doesn't
-                contain @test annotated functions;
+                contain @Test annotated functions;
                 continue to next file.
             end note
+        else (True)
         endif
         :Execute the test's <i>Setup()</i> method;
         while (Have all tests been run?) is (False)

@@ -1,5 +1,4 @@
 @startuml usecase
-left to right direction
 skinparam linetype ortho
 
 
@@ -17,12 +16,12 @@ rectangle usecase as "Uitvoeren individuele tests" {
     usecase teardown as "Teardown function is executed"
 }
 
-caller -- setup
-setup -> search
-search -> execute
-search -right-> caller
-execute --|> return
-return -right-> caller
-execute -> teardown
+setup - caller
+setup --> search
+search --> execute
+search -> caller
+execute -|> return
+return -> caller
+execute --> teardown
 
 @enduml

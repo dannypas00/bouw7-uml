@@ -54,8 +54,10 @@ Ook zullen de use cases in de vorm van UML diagrammen opgebouwd worden:
 ![Enkele test](/out/Scenarios/IndividualTest/usecase.svg "Enkele test")
 
 # Process view: Activity diagrams
+## Executing tests
 ![Execute tests](/out/Process/ExecuteTestsActivity/Execute%20functional%20tests%20activity%20diagram.svg)
 
+## CircleCI workflow
 ![CircleCI workflow](/out/Process/WorkflowActivity/Functional%20testing%20workflow%20activity%20diagram.svg)
 
 # Development view: Component diagram
