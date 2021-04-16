@@ -1,0 +1,28 @@
+@startuml usecase
+left to right direction
+skinparam linetype ortho
+
+
+actor caller as "Framework"
+
+rectangle usecase as "Uitvoeren individuele tests" {
+    usecase setup as "Execute setup function"
+    usecase search as "Search test class for 
+        @Test annotated functions
+        --No test case found:--
+        Throw error"
+    usecase execute as "@Test functions are executed"
+    usecase return as "Testresults are emitted concurrently
+    to the framework"
+    usecase teardown as "Teardown function is executed"
+}
+
+caller -- setup
+setup -> search
+search -> execute
+search -right-> caller
+execute --|> return
+return -right-> caller
+execute -> teardown
+
+@enduml

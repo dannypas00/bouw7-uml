@@ -2,25 +2,22 @@
 left to right direction
 skinparam linetype ortho
 
-actor caller as "Aanroeper"
+actor caller as "Caller"
 
 note top of caller: Kan menselijke\ngebruiker of CI zijn
 
 rectangle "Start tests" {
-    usecase start as "Roep test framework aan"
-    usecase search as "Doorzoek geconfigureerde \nfiles voor test case classes
-    --Test classes gevonden--
-              Ga door
-    --Geen test classes gevonden--
-                Geef error
-    "
-    usecase db as "Start lokale database"
-    usecase init as "Vul de database met dummy data"
+    usecase start as "Call framework"
+    usecase search as "Search files for test classes
+    --No test classes found:--
+    Throw error"
+    usecase db as "Start local test database"
+    usecase init as "Fill database with dummy data"
     usecase servers as "Start server docker images"
-    usecase load as "Laad de test cases in"
-    usecase execute as "Voer de ingeladen tests uit"
-    usecase return as "Laat testresultaten zien"
-    usecase error as "Weergeef error "No testcases found""
+    usecase load as "Load the test classes"
+    usecase execute as "Execute test classes"
+    usecase return as "Return test results"
+    usecase error as "Display error "No testcases found""
 }
 
 caller -- start

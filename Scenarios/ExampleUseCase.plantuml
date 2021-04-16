@@ -1,11 +1,12 @@
 @startuml usecase
 left to right direction
 
-rectangle "Gebruiker data updaten in de database" {
-    usecase interaction as "Update gebruiker in database"
-    usecase crud as "CRUD actie" <<interface>>
-    interaction <|- crud : Extends
-    usecase display as "Weergeef data aan gebruiker"
+rectangle "Update user data in database" {
+    usecase interaction as "Update user data"
+    usecase crud as "CRUD action" <<interface>>
+    interaction <|.. crud : Extends
+    usecase display as "Display data to user"
+    display <|.. crud: Extends
 }
 
 actor User as "Systeemgebruiker"

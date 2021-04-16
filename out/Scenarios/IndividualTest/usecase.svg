@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="517px" preserveAspectRatio="none" style="width:661px;height:517px;" version="1.1" viewBox="0 0 661 517" width="661px" zoomAndPan="magnify"><defs><filter height="300%" id="f1rowqyt7rsfp6" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[e87e603ccfa50601551ee5182e1669af]
+cluster usecase--><rect fill="#FFFFFF" filter="url(#f1rowqyt7rsfp6)" height="403" style="stroke:#000000;stroke-width:1.5;" width="642" x="7" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="192" x="232" y="23.5332">Uitvoeren individuele tests</text><ellipse cx="146.6309" cy="372.8262" fill="#FEFECE" filter="url(#f1rowqyt7rsfp6)" rx="92.1309" ry="20.8262" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="75.1309" y="376.5547">Execute setup function</text><ellipse cx="146.426" cy="264.9848" fill="#FEFECE" filter="url(#f1rowqyt7rsfp6)" rx="123.426" ry="51.9848" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="129" x="93.1482" y="241.0046">Search test class for</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="171" x="72.1482" y="258.614">@Test annotated functions</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="98.6482" y="293.8328">Throw error</text><line style="stroke:#A80036;stroke-width:1.0;" x1="24.6953" x2="85.426" y1="270.4949" y2="270.4949"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="85.426" y="275.7234">No test case found:</text><line style="stroke:#A80036;stroke-width:1.0;" x1="207.426" x2="268.1568" y1="270.4949" y2="270.4949"/><ellipse cx="146.7192" cy="152.9438" fill="#FEFECE" filter="url(#f1rowqyt7rsfp6)" rx="112.7192" ry="24.9438" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="52.2192" y="156.6724">@Test functions are executed</text><ellipse cx="481.4566" cy="257.1913" fill="#FEFECE" filter="url(#f1rowqyt7rsfp6)" rx="151.4566" ry="32.6913" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="227" x="366.403" y="252.5369">Testresults are emitted concurrently</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="427.403" y="270.1462">to the framework</text><ellipse cx="146.5948" cy="68.219" fill="#FEFECE" filter="url(#f1rowqyt7rsfp6)" rx="114.0948" ry="25.219" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="192" x="50.5948" y="71.9475">Teardown function is executed</text><!--MD5=[199196004143ad81764c15ef5a1e7d18]
+entity caller--><ellipse cx="146.5" cy="439" fill="#FEFECE" filter="url(#f1rowqyt7rsfp6)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M146.5,447 L146.5,474 M133.5,455 L159.5,455 M146.5,474 L133.5,489 M146.5,474 L159.5,489 " fill="none" filter="url(#f1rowqyt7rsfp6)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="111.5" y="509.0332">Framework</text><!--MD5=[af1e57adf7043d9f06dfa77476599b34]
+link caller to setup--><path d="M147,429.44 C147,417.23 147,404.39 147,394.05 " fill="none" id="caller-setup" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4993e79e487106409c15532f81eecb60]
+link setup to search--><path d="M147,351.92 C147,351.92 147,322.38 147,322.38 " fill="none" id="setup-to-search" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="147,317.38,143,326.38,147,322.38,151,326.38,147,317.38" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[67b2247b79ac387f423c8f534ac55e38]
+link search to execute--><path d="M147,212.93 C147,212.93 147,183.14 147,183.14 " fill="none" id="search-to-execute" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="147,178.14,143,187.14,147,183.14,151,187.14,147,178.14" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[191b9aca21ba62d7a5761d5374362308]
+link search to caller--><path d="M255,290.12 C255,342.21 255,457.17 255,457.17 C255,457.17 186.73,457.17 186.73,457.17 " fill="none" id="search-to-caller" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="181.73,457.17,190.73,461.17,186.73,457.17,190.73,453.17,181.73,457.17" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[67561c93f7449e45ab00006e6e3d3946]
+link execute to return--><path d="M259.15,153 C356.62,153 482,153 482,153 C482,153 482,204.38 482,204.38 " fill="none" id="execute-to-return" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="489,204.38,482,224.38,475,204.38,489,204.38" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[925f9faabcc401c220924b4db54a0253]
+link return to caller--><path d="M482,289.64 C482,352.64 482,484.83 482,484.83 C482,484.83 186.77,484.83 186.77,484.83 " fill="none" id="return-to-caller" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="181.77,484.83,190.77,488.83,186.77,484.83,190.77,480.83,181.77,484.83" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[99967d292dbfdf343fa4d991b04a12df]
+link execute to teardown--><path d="M147,127.96 C147,127.96 147,98.16 147,98.16 " fill="none" id="execute-to-teardown" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="147,93.16,143,102.16,147,98.16,151,102.16,147,93.16" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[985790849075cb43b940bfc82567ed9d]
+@startuml usecase
+left to right direction
+skinparam linetype ortho
+
+
+actor caller as "Framework"
+
+rectangle usecase as "Uitvoeren individuele tests" {
+    usecase setup as "Execute setup function"
+    usecase search as "Search test class for 
+        @Test annotated functions
+        - -No test case found:- -
+        Throw error"
+    usecase execute as "@Test functions are executed"
+    usecase return as "Testresults are emitted concurrently
+    to the framework"
+    usecase teardown as "Teardown function is executed"
+}
+
+caller - - setup
+setup -> search
+search -> execute
+search -right-> caller
+execute - -|> return
+return -right-> caller
+execute -> teardown
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>
