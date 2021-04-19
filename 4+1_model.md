@@ -65,3 +65,6 @@ Ook zullen de use cases in de vorm van UML diagrammen opgebouwd worden:
 
 # Physical view: Deployment diagram
 ![Deployment diagram](out/Physical/CIDeployment/CircleCI%20Deployment%20Diagram.svg)
+
+# Logical view: Class diagram
+![Class diagram](out/Logical/ClassDIagram/Framework%20class%20diagram.svg)
