@@ -4,7 +4,7 @@ skinparam linetype ortho
 
 actor caller as "Framework"
 
-rectangle usecase as "Uitvoeren individuele tests" {
+rectangle usecase as "Executing individual tests" {
     usecase setup as "Execute setup function"
     usecase search as "Search test class for 
         @Test annotated functions

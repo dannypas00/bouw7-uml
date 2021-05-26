@@ -9,7 +9,7 @@ rectangle "Update user data in database" {
     display <|.. crud: Extends
 }
 
-actor User as "Systeemgebruiker"
+actor User as "System user"
 
 display -- User
 User -- interaction
